@@ -40,7 +40,6 @@ end
 
 group :development, :test do
   gem 'foreman'
-  gem 'bugbye'
 end
 
 
