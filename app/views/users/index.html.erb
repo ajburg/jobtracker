@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="row">
+
+
+    <% if @users.empty? %>
+      <div class="col-md-12">
+        <h1>
+          No Users in the system at present... did someone forget to seed?
+        </h1>
+      </div>
+    <% else %>
+      <div class="col-md-12">
+        <h3>
+          Users
+        </h3>
+      </div>
+      <table class="table table-stripped">
+        <thead>
+          <tr>
+            <td>First Name</td>
+            <td>Last Name</td>
+            <td>Email</td>
+            <td>Role</td>
+            <td>Last IP Address </td>
+            <td></td>
+          </tr>
+        </thead>
+        <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <td>
+              <strong><%= user.first_name %></strong>
+            </td>
+            <td>
+              <%= user.last_name %>
+            </td>
+            <td>
+              <%= user.email %>
+            </td>
+            <td>
+              <%= user.role.user_role %>
+            </td>
+            <td>
+             <%= user.last_sign_in_ip %>
+             </td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    <% end %>
+
+
+  </div>
+</div>
+

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  job_no: 1
+  job_type: MyString
+  job_state: MyString
+  start_date: 2014-10-19 19:37:57
+  client_id: MyString
+
+two:
+  job_no: 1
+  job_type: MyString
+  job_state: MyString
+  start_date: 2014-10-19 19:37:57
+  client_id: MyString

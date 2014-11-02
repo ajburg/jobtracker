@@ -1,0 +1,19 @@
+<%= form_for @base_sla, html: { class: 'well form', role: 'form' } do |f| %>
+  <%= render partial: 'shared/error_messages', object: @base_sla %>
+  <div class="form-group">
+    <%= f.label :name, 'Base SLA Name' %>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :quantity, 'Quantity per period' %>
+    <%= f.text_field :quantity, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :period %>
+    <%= f.select(:period, @period.map { |g| [g.name, g.value]}) %>
+  </div>
+  <div class="actions">
+    <%= f.submit 'Save', class: 'btn btn-default' %>
+  </div>
+<% end %>
+

@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="row">
+    <% if @baseslas.empty? %>
+      <div class="col-md-12">
+        <h1>
+          There are no Base SLA's in the system at present.... did you forget to seed?
+        </h1>
+      </div>
+    <% else %>
+      <table class="table table-stripped">
+        <thead>
+          <tr>
+            <td>Name</td>
+            <td>Quantity</td>
+            <td>Period</td>
+            <td></td>
+          </tr>
+        </thead>
+        <tbody>
+        <% @baseslas.each do |sla| %>
+          <tr>
+            <td>
+              <%= sla.name %>
+            </td>
+            <td>
+              <%= sla.quantity %>
+            </td>
+            <td>
+              <%= sla.period %>
+            </td>
+            <td>
+              <%= link_to 'Edit', edit_base_sla_path(sla) %> |
+              <%= link_to 'Delete', base_sla_path(sla), method: :delete %>
+            </td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    <% end %>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <%= link_to "Add New BaseSLA", new_base_sla_path, class: 'btn btn-default' %>
+    </div>
+  </div>
+</div>

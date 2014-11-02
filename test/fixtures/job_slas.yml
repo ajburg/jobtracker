@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  start_datetime: 2014-10-19 19:36:07
+  end_datetime: 2014-10-19 19:36:07
+  finished_datetime: 2014-10-19 19:36:07
+  current_state: MyString
+  client_sla_id: 1
+  job_id: 1
+
+two:
+  start_datetime: 2014-10-19 19:36:07
+  end_datetime: 2014-10-19 19:36:07
+  finished_datetime: 2014-10-19 19:36:07
+  current_state: MyString
+  client_sla_id: 1
+  job_id: 1

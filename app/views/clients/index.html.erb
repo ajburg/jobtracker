@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row">
+
+    <% if @clients.empty? %>
+      <div class="col-md-12">
+        <h3>
+          No Clients in the system at present
+        </h3>
+      </div>
+    <% else %>
+      <div class="col-md-12">
+        <h3>
+          Clients
+        </h3>
+      </div>
+      <table class="table table-stripped">
+        <thead>
+          <tr>
+            <td>Client Name</td>
+            <td>WFM ID</td>
+            <td>Table ID</td>
+          </tr>
+        </thead>
+        <tbody>
+        <% @clients.each do |client| %>
+          <tr>
+            <td>
+              <strong><%= client.name %></strong>
+            </td>
+            <td>
+              <%= client.wfm_id %>
+            </td>
+            <td>
+              <%= client.id %>
+            </td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    <% end %>
+
+
+  </div>
+</div>
+

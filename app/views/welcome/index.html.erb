@@ -1,0 +1,69 @@
+<div class="container">
+  <div class="row">
+
+    <% if @jobs.empty? %>
+      <div class="col-md-12">
+        <h3>
+          No Jobs in the system at present
+        </h3>
+      </div>
+    <% else %>
+      <div class="col-md-12">
+        <h3>
+          Jobs
+        </h3>
+      </div>
+      <table class="table table-stripped">
+        <thead>
+          <tr>
+            <td>Job Number</td>
+            <td>Client</td>
+            <td>Job Name</td>
+            <td>State</td>
+            <td>Due Date</td>
+          </tr>
+        </thead>
+        <tbody>
+        <% workingdate = nil %>
+        <% @jobs.each do |job| %>
+
+          <% if job.due_date.strftime("%d/%m/%Y") != workingdate %>
+            <tr>
+              <td>
+                <h4><strong><font color="red"><%= job.due_date.strftime("%d/%m/%Y") %></font></strong></h2.<strong></h4>
+                <% workingdate = job.due_date.strftime("%d/%m/%Y") %>
+                </td>
+            </tr>
+          <% end %>
+
+
+            <tr>
+              <td>
+               <%= job.job_no %>
+              </td>
+              <td>
+                <%= job.client.name %>
+              </td>
+              <td>
+               <%= job.job_type %>
+              </td>
+              <td>
+               <%= job.job_state %>
+              </td>
+              <td>
+                <% if job.due_date < DateTime.current %>
+                 <strong><font color="red"><%= job.due_date.strftime("%d/%m/%Y") %></font></strong>
+                <% else %>
+                 <%= job.due_date.strftime("%d/%m/%Y") %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
+
+
+  </div>
+</div>
+
