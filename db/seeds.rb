@@ -16,5 +16,5 @@ Lookup.create(name: 'Hours', value: 'hours', lookup_type: 'BusinessTime')
 Lookup.create(name: 'Day', value: 'day', lookup_type: 'BusinessTime')
 Lookup.create(name: 'Days', value: 'days', lookup_type: 'BusinessTime')
 
-BaseSla.create(name: '8 Business Hours', period: 'Hours', quantity: '8')
-BaseSla.create(name: '3 Business Days', period: 'Days', quantity: '3')
+BaseSla.create(name: '8 Business Hours', period: 'hours', quantity: '8')
+BaseSla.create(name: '3 Business Days', period: 'days', quantity: '3')
