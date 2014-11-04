@@ -65,7 +65,7 @@ class WfmCall < ActiveRecord::Base
 
     if jobcheck.client_id != client_id
       Job.update(jobcheck.id, client_id: client_id)
-      puts "Job Client changed"
+      #puts "Job Client changed"
     end
 
     return jobcheck.id
@@ -87,6 +87,22 @@ class WfmCall < ActiveRecord::Base
     end
   end
 
+  def jobcleanup
+    jobs=Job.all
+    jobs.each do |job|
+
+      @module = "get/#{job.job_no}"
+      build_request
+
+      wfmresult=request
+      wfmresulthash=Hash.from_xml(wfmresult)
+
+      clientid=clientvalidate(wfmresulthash['Response']['Job']['Client']['ID'], wfmresulthash['Response']['Job']['Client']['Name'])
+      jobid=jobvalidate(wfmresulthash['Response']['Job']['ID'], wfmresulthash['Response']['Job']['Name'], wfmresulthash['Response']['Job']['State'], wfmresulthash['Response']['Job']['StartDate'], wfmresulthash['Response']['Job']['DueDate'], clientid)
+
+
+    end
+  end
 
 
 end
