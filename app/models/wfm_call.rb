@@ -88,7 +88,7 @@ class WfmCall < ActiveRecord::Base
   end
 
   def jobcleanup
-    jobs=Job.all
+    jobs=Job.where.not(job_state: 'Completed').order('due_date asc')
     jobs.each do |job|
 
       @module = "get/#{job.job_no}"
